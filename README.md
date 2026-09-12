@@ -28,7 +28,6 @@ Note: The embedded hardware and firmware execution are simulated in Proteus 9.1 
 - DC Motor
 - Motor driver
 - Motor runs in FORWARDS direction at speed 255 when the ON command is received
-
  
 ## System Architecture
 
@@ -51,65 +50,72 @@ Sensing → Connectivity → MQTT → Cloud → Rule Engine → Command → Actu
 - MQTT testing using mosquitto_pub and mosquitto_sub
 - End-to-end debugging and validation
 
-
 ## Skills Demonstrated
 
-- STM32F401RE microcontroller
-- Embedded C
-- Proteus VSM simulation
-- ADC
-- UART communication
-- Sensor interfacing
-- Debugging and testing
+### IoT & Networking
+- MQTT Publish/Subscribe architecture
+- MQTT QoS
+- MQTT Client ID management
+- MQTT topic design
+- ThingSpeak cloud integration
+- ThingSpeak React
+- ThingHTTP
+- REST API
+- DNS troubleshooting
+- MQTT diagnostics
+### Embedded Systems
+- Arduino UNO / ATmega328P
+- LM35 sensor interfacing
+- Analog temperature measurement
+- DC motor control
+- Event-driven firmware
+- Embedded system simulation
+### Simulation
+- Proteus 9.1 VSM
+- Proteus Visual Designer
+- IoT simulation
+- Flowchart-based firmware development
+### Tools
+- Mosquitto MQTT
+- mosquitto_pub
+- mosquitto_sub
+- nslookup
+### Engineering & Problem Solving
+- Layer-by-layer debugging
+- Root cause analysis
+- Cloud integration troubleshooting
+- Communication troubleshooting
+- Technical documentation
 
 ## My Contribution
 
-- Designed the overall IoT system architecture
-- Selected the STM32F446RE, Raspberry Pi 3B, MQ135 and MQ7
-- Developed Embedded C firmware for STM32
-- Implemented ADC-based sensor reading
-- Implemented sensor range classification
-- Developed Raspberry Pi Python GPIO interface
-- Integrated the system with ThingSpeak
-- Configured remote Raspberry Pi access using VNC
-- Performed hardware testing and debugging / Debugged hardware/firmware interaction.
+- Designed the complete IoT architecture from sensor to cloud
+- Configured and tested MQTT communication
+- Configured ThingSpeak channel and fields
+- Created separate MQTT publish and subscribe devices
+- Developed Proteus Visual Designer flowcharts
+- Implemented temperature publishing and motor command subscription
+- Configured ThingSpeak React rule engine and ThingHTTP REST API action
+- Designed ThingSpeak dashboard
+- Performed DNS and MQTT diagnostics
+- Tested MQTT communication using Mosquitto CLI
+- Debugged broker, credentials, topic and flowchart issues
+- Validated complete end-to-end IoT communication
+- Documented architecture, testing and engineering challenges
 
-## Engineering Challenges
+## Key Engineering Learnings
 
-### Challenge 1 — Noisy low-cost sensor output
-
-The MQ135 and MQ7 sensors produce noisy analog output and do
-not directly provide reliable PPM values.
-
-### Solution
-
-Implemented an 8-bit ADC-based three-band classification approach
-to provide indicative pollution severity levels.
-
-### Challenge 2 — Limited communication pins
-
-The STM32 needed to communicate the classified sensor status
-to the Raspberry Pi using limited GPIO resources.
-
-### Solution
-
-Used two digital GPIO signals per sensor to encode the
-three classification bands.
-
-## Limitations
-
-The current prototype provides indicative pollution severity
-levels rather than calibrated PPM measurements.
-
-The MQ135/MQ7 output is classified into predefined ranges.
-Future work will include proper sensor calibration and
-PPM conversion.
+- MQTT is a communication protocol and can be used with different MQTT clients and brokers.
+- ThingSpeak provides MQTT, cloud storage, visualization and rule-based automation within one platform.
+- ThingSpeak uses a specific MQTT topic structure for channel fields.
+- Separate MQTT credentials/devices can be required for independent publish and subscribe operations.
+- Continuous subscription handling is important for receiving MQTT commands.
+- Cloud-based automation introduces additional response latency compared with local control.
+- MQTT, ThingHTTP and ThingSpeak API keys have different purposes.
+- Testing individual communication layers before performing end-to-end testing simplifies debugging.
 
 ## Results
 
-The system successfully transmitted sensor readings from the
-STM32 through the Raspberry Pi gateway to ThingSpeak.
-
-The ThingSpeak dashboard displayed the sensor data as live
-field charts at approximately 15-second intervals.
-
+The system successfully achieved:
+Temperature Sensing → MQTT Publishing → ThingSpeak Cloud → React Rule → ThingHTTP → MQTT Subscription → Motor Control
+This project demonstrates practical experience in embedded systems, IoT communication, MQTT, cloud integration, simulation, debugging and automation.
