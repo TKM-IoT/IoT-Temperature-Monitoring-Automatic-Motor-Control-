@@ -13,12 +13,9 @@ Note: The embedded hardware and firmware execution are simulated in Proteus 9.1 
 ### Hardware / Simulation Components: 
 #### Microcontroller
 - Arduino UNO
-- ATmega328P
-- Proteus 9.1 VSM simulation
+- ESP8266
 #### Sensor
 - LM35 temperature sensor
-- Analog output
-- 10 mV/°C sensitivity
 - Connected to Arduino Analog Pin A0
 #### Communication
 - ESP8266 Wi-Fi module
